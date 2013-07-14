@@ -1,6 +1,6 @@
 'use strict';
 
-describeComponent('lib/components', function () {
+describeComponent('lib/flight-components', function () {
 
   // Initialize the component and attach it to the DOM
   beforeEach(function () {
