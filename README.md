@@ -1,8 +1,8 @@
 # flight-components
 
-[![Build Status](https://secure.travis-ci.org/<username>/flight-components.png)](http://travis-ci.org/<username>/flight-components)
+[![Build Status](https://secure.travis-ci.org/rogeliog/flight-components.png)](http://travis-ci.org/rogeliog/flight-components)
 
-A [Flight](https://github.com/flightjs/flight) component for…
+A [Flight](https://github.com/flightjs/flight) component to get a list of all the registered Flight components
 
 ## Installation
 
@@ -12,7 +12,56 @@ bower install --save flight-components
 
 ## Example
 
-…
+### Attach it to an element
+
+```javascript
+
+define(function (require) {
+
+  var flightComponents = require('flight-components/lib/flight-components');
+
+  return initialize;
+
+  function initialize() {
+    flightComponents.attachTo('#selector');
+  };
+});
+
+```
+
+### Interact with it
+
+```javascript
+define(function (require) {
+
+  var defineComponent = require('flight/lib/component');
+
+  return defineComponent(myComponent);
+
+  function myComponent() {
+    .
+    .
+
+    this.handleError = function(ev, data) {
+      console.log('ERROR');
+    };
+
+    this.displayComponents = function(ev, data) {
+      //data is an array of components
+    };
+
+    this.after('initialize', function () {
+      this.trigger('needs-flight-components');
+
+      this.on('flight-components-served', this.displayComponents);
+
+      this.on('flight-components-error', this.handleError);
+    });
+  };
+});
+```
+
+Each component has the following properties: name, description, owner, website, forks, stars, created and updated.
 
 ## Development
 
