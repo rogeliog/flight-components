@@ -61,5 +61,11 @@ describeComponent('lib/flight-components', function () {
       var flightComponents = [{name: 'flight-one'}, {name: 'flight-two'}];
       expect(this.component.filterComponents(components, /^flight-/)).toEqual(flightComponents);
     });
+
+    it('excludes the components in the except attribute', function () {
+      setupComponent({except: ["flight-two"]});
+      var flightComponents = [{name: 'flight-one'}];
+      expect(this.component.filterComponents(components, /^flight-/)).toEqual(flightComponents);
+    });
   });
 });
