@@ -13,7 +13,7 @@ describeComponent('lib/flight-components', function () {
         var successSpy = spyOn(this.component, 'successCallback');
         spyOn($, "ajax").andCallFake(function(options) { options.success(); });
 
-        $(document).trigger('ui-needs-flight-components');
+        $(document).trigger('needs-flight-components');
         expect(successSpy).toHaveBeenCalled();
       });
     });
@@ -23,7 +23,7 @@ describeComponent('lib/flight-components', function () {
         var errorSpy = spyOn(this.component, 'errorCallback');
         spyOn($, "ajax").andCallFake(function(options) { options.error(); });
 
-        $(document).trigger('ui-needs-flight-components');
+        $(document).trigger('needs-flight-components');
         expect(errorSpy).toHaveBeenCalled();
       });
     });
