@@ -15,7 +15,6 @@ bower install --save flight-components
 ### Attach it to an element
 
 ```javascript
-
 define(function (require) {
 
   var flightComponents = require('flight-components/lib/flight-components');
@@ -28,7 +27,6 @@ define(function (require) {
     });
   };
 });
-
 ```
 
 ### Interact with it
